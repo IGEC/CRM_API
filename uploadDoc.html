@@ -1,0 +1,21 @@
+<h3 style="color:rebeccapurple;">API URL & Query Parameters</h3>
+<label style="color:seagreen;">API url:</label> <span> http://184.107.35.151/igecMobile/apis/uploadDocumentForStudent.php</span><br/>
+<label style="color:seagreen;">contact_id:</label> <span> Contact record ID</span><br/>
+<label style="color:seagreen;">fileToUpload:</label> <span> File Attachment </span><br/>
+<hr style="border: 2px solid orange;">
+
+<form action="apis/uploadDocumentForStudent.php" method="post" enctype="multipart/form-data">
+    <h1 style="color:orange;">Upload Document For Contact ID</h1>
+
+
+    <label >Contact ID to upload documnet</label>
+    <input  type="text" id="contact_id" name="contact_id"
+            placeholder="Enter Contact ID" value="" required>
+    <br/>
+
+    <label >Upload</label>
+    <input type="file" name="fileToUpload" id="fileToUpload">
+    <br/>
+    <br/>
+    <input type="submit" value="Upload Document" name="submit">
+</form>

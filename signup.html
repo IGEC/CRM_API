@@ -1,0 +1,33 @@
+<h3 style="color:rebeccapurple;">API URL & Query Parameters</h3>
+<label style="color:seagreen;">API url:</label> <span> http://184.107.35.151/igecMobile/apis/signup.php</span><br/>
+<label style="color:seagreen;">email_address:</label> <span> Student email</span><br/>
+<label style="color:seagreen;">first_name:</label> <span> Student First Name</span><br/>
+<label style="color:seagreen;">last_name:</label> <span> Student Last Name</span><br/>
+<label style="color:seagreen;">mobile:</label> <span> Student Mobile#</span><br/>
+<label style="color:seagreen;">address_country:</label> <span> Address Country</span><br/>
+<label style="color:seagreen;">std_password:</label> <span> Student password</span>
+<hr style="border: 2px solid orange;">
+<form  action="apis/signup.php" method="post">
+    <h1 style="color:orange;">Sign Up Screen</h1>
+
+    <label >Student Email</label>
+    <input  type="email" id="email_address" name="email_address"  placeholder="Enter Email">
+    <br/>
+    <label >Student First Name</label>
+    <input  type="text" id="first_name" name="first_name"  placeholder="Enter First Name">
+    <br/>
+    <label >Student Last Name</label>
+    <input  type="text" id="last_name" name="last_name"  placeholder="Enter Last Name">
+    <br/>
+    <label >Student Mobile</label>
+    <input  type="phone" id="mobile" name="mobile"  placeholder="Enter Mobile#">
+    <br/>
+    <label >Address Country</label>
+    <input  type="text" id="address_country" name="address_country"  placeholder="Enter Country">
+    <br/>
+    <label >Student Password</label>
+    <input  type="password" id="std_password" name="std_password"  placeholder="Enter Desired Password">
+    <br/>
+    <br/>
+    <button id="login_btn" type="submit" style="background-color: green; color:white;"> Register</button>
+</form>
