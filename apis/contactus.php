@@ -31,12 +31,14 @@ if( isset($_REQUEST['about_email']) && !empty($_REQUEST['about_email']) ){
 	/*
 		Create a Case against Student if record_id is not empty
 	*/
-	if(!empty($record_id)){
-		$record_id = $_REQUEST['record_id'];
-		$name = $_REQUEST['about_name'];
-		$assignuserid = '3';
-		$description = $_REQUEST['about_message'];
-		$subject = $_REQUEST['about_name'];
+	$record_id = $_REQUEST['record_id'];
+	$name = $_REQUEST['about_name'];
+	$mobile = $_REQUEST['about_mobile'];
+	$email = $_REQUEST['about_email'];
+	$assignuserid = '3';
+	$description = $_REQUEST['about_message'];
+	$subject = $_REQUEST['about_name'];
+	if(!empty($_REQUEST['record_id'])){
 		$params = array(
 			'sessionID' => $session_id,
 			'module' => 'Cases',
@@ -53,6 +55,43 @@ if( isset($_REQUEST['about_email']) && !empty($_REQUEST['about_email']) ){
 		);
 		$retData = call('set_entry', $params, $url);
 		echo json_encode($retData);
+		sendEmail();
+	}else{
+		sendEmail();
+	}
+	function sendEmail(){
+		$to = "hameed@igec.com.au";
+		$txt = "Hi!<br/>";
+		$txt.= "Greeting From IGEC Mobile App!"."<br/>";
+		$txt.= "Student Name :".$name."<br/>";
+		$txt.= "Student Email :".$email."<br/>";
+		$txt.= "Student Mobile :".$mobile."<br/>";
+		$txt.= "Message :".$description."<br/>";
+		$txt.= "Regards<br/>";
+		$txt.= "CRM Application";
+		require_once('phpmailer/PHPMailerAutoload.php');
+		require_once('phpmailer/class.phpmailer.php');
+		$mail = new PHPMailer();
+		// Settings
+		$mail->IsSMTP();
+		$mail->CharSet = 'UTF-8';
+		$mail->Host       = "smtp.gmail.com"; // SMTP server example
+		$mail->SMTPDebug  = 3;                // enables SMTP debug information (for testing)
+		$mail->SMTPAuth   = true; 
+		$mail->SMTPSecure = 'tls';            // enable SMTP authentication
+		$mail->Port       = 587;               // set the SMTP port for the GMAIL server
+		$mail->Username   = "crmigec2@gmail.com"; 	  // SMTP account username example
+		$mail->Password   = "igec321@@";       // SMTP account password example
+		$mail->CharSet = 'UTF-8';
+		// Content
+		$mail->isHTML(true);                                  // Set email format to HTML
+		$mail->Subject = 'CRM Mobile App';
+		$mail->Body    = $txt;
+		$mail->SetFrom('crmigec2@gmail.com', 'IGEC');
+		$mail->AddAddress($to);
+		if(!$mail->Send()) {
+			echo $mail->ErrorInfo . '<br>';
+		}
 	}
 }
 
