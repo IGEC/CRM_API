@@ -1,0 +1,27 @@
+<h3 style="color:rebeccapurple;">API URL & Query Parameters</h3>
+<label style="color:seagreen;">API url:</label> <span> http://184.107.35.151/igecMobile/apis/contactus.php</span><br/>
+<label style="color:seagreen;">record_id:</label> <span> Record ID</span><br/>
+<label style="color:seagreen;">about_name:</label> <span> Name</span><br/>
+<label style="color:seagreen;">about_email:</label> <span> Email</span><br/>
+<label style="color:seagreen;">about_mobile:</label> <span> Phone</span><br/>
+<label style="color:seagreen;">about_message:</label> <span> Message </span><br/>
+<hr style="border: 2px solid orange;">
+<form  action="apis/contactus.php" method="post">
+    <h1 style="color:orange;">Contact Us</h1>
+	<label> Record</label>
+    <input  type="text" id="record_id" name="record_id"  placeholder="Enter Record ID">
+    <br/>
+    <label > Name</label>
+    <input  type="text" id="about_name" name="about_name"  placeholder="Enter Name">
+    <br/>
+    <label >Email</label>
+    <input  type="email" id="about_email" name="about_email"  placeholder="Enter Email">
+    <br/>
+    <label >Phone</label>
+    <input  type="text" id="about_mobile" name="about_mobile"  placeholder="Enter Mobile">
+    <br/>
+    <label >Message</label>
+    <input  type="text" id="about_message" name="about_message"  placeholder="Enter Message">
+    <br/>
+    <button id="about_submit" type="submit" style="background-color: green; color:white;"> Submit</button>
+</form>
