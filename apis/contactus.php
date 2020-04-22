@@ -89,11 +89,12 @@ if( isset($_REQUEST['about_email']) && !empty($_REQUEST['about_email']) ){
 			), 
 		);
 		$retData = call('set_entry', $params, $url);
-		echo json_encode($retData);
+		$retData['message'] = 'An Email Sent to IGEC Staff admin and Case has been Created into CRM.';
 		sendEmail($name,$mobile,$email,$description);
 	}else{
 		sendEmail($name,$mobile,$email,$description);
+		$retData['message'] = 'An Email Sent to IGEC Staff admin.';
 	}
-	
+	echo json_encode($retData);
 }
 
