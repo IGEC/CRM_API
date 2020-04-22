@@ -30,7 +30,7 @@ if( isset($_REQUEST['about_email']) && !empty($_REQUEST['about_email']) ){
 		$mail->IsSMTP();
 		$mail->CharSet = 'UTF-8';
 		$mail->Host       = "smtp.gmail.com"; // SMTP server example
-		$mail->SMTPDebug  = 3;                // enables SMTP debug information (for testing)
+		$mail->SMTPDebug  = 0;                // enables SMTP debug information (for testing)
 		$mail->SMTPAuth   = true; 
 		$mail->SMTPSecure = 'tls';            // enable SMTP authentication
 		$mail->Port       = 587;               // set the SMTP port for the GMAIL server
@@ -88,13 +88,15 @@ if( isset($_REQUEST['about_email']) && !empty($_REQUEST['about_email']) ){
 				"description" => $description,
 			), 
 		);
-		$retData = call('set_entry', $params, $url);
-		$retData['message'] = 'An Email Sent to IGEC Staff admin and Case has been Created into CRM.';
+		$result = call('set_entry', $params, $url);
 		sendEmail($name,$mobile,$email,$description);
+		$retData['message'] = 'Contact Us form has been submitted successfully. IGEC will contact you soon. Thanks';
 	}else{
 		sendEmail($name,$mobile,$email,$description);
-		$retData['message'] = 'An Email Sent to IGEC Staff admin.';
+		$retData['message'] = 'Contact Us form has been submitted successfully. IGEC will contact you soon. Thanks';
 	}
-	echo json_encode($retData);
+	$retData['message'] = 'Email Address is Required.';
 }
+echo json_encode($retData);
+
 
